@@ -25,7 +25,7 @@ const PokeInfo = () => {
     <article className='pokeInfoCard'>
       <div className='baseInfo'>
         <div className='pokeImage'>
-        <img src={pokeInfo?.sprites.other['official-artwork'].front_default} alt="pokemon picture" className='pokemonPicture'/>
+          <img src={pokeInfo?.sprites.other['official-artwork'].front_default} alt="pokemon picture" className='pokemonPicture'/>
         </div>
         <hr />
         <h2><b>Name: </b>{pokeInfo?.name}</h2>

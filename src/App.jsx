@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Pokedex from './components/Pokedex'
 import PokeInfo from './components/PokeInfo'
 import pokenav from './img/pokemon_pokeball_logo.png'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -24,6 +25,9 @@ function App() {
             <Route path='/pokedex/:id' element={ <PokeInfo/> } />
           </Route>
       </Routes>
+      <div className='footer'>
+        <Footer/>
+      </div>
     </div>
   )
 }
