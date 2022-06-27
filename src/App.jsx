@@ -25,9 +25,7 @@ function App() {
             <Route path='/pokedex/:id' element={ <PokeInfo/> } />
           </Route>
       </Routes>
-      <div className='footer'>
-        <Footer/>
-      </div>
+      <Footer/>
     </div>
   )
 }
