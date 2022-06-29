@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const PokeCardFilter = ({typeUrl}) => {
 
@@ -13,8 +14,12 @@ const PokeCardFilter = ({typeUrl}) => {
 
     console.log(pokemon);
 
+    const navigate = useNavigate ()
+
+    const clickCard = () => navigate ( `/pokedex/${pokemon.id}` ) 
+
   return (
-    <article className='pokeCard'>
+    <article className='pokeCard' onClick={clickCard}>
         <img src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
             <h2>Name: {pokemon?.name}</h2>
             <hr />
