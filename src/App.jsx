@@ -6,6 +6,7 @@ import Pokedex from './components/Pokedex'
 import PokeInfo from './components/PokeInfo'
 import pokenav from './img/pokemon_pokeball_logo.png'
 import Footer from './components/Footer'
+import PokeFilter from './components/PokeFilter'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path='/' element={ <Home/> } />
             <Route path='/pokedex' element={ <Pokedex/> } />
             <Route path='/pokedex/:id' element={ <PokeInfo/> } />
+            <Route path='/pokefilter/:type' element={ <PokeFilter/> }/>
           </Route>
       </Routes>
       <Footer/>

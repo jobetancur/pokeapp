@@ -48,6 +48,7 @@ const PokeInfo = () => {
         <hr />
         <div className='divition3'>
           <p>{pokeInfo?.types[0].type.name}</p>
+          <p>{pokeInfo?.types[1]?.type.name}</p>
         </div>
       </div>
       <button onClick={clickBack} className='goBack'>Go back!</button>

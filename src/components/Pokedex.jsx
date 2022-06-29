@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import InputSelector from './InputSelector'
 import Pagination from './Pagination'
 import PokeCard from './PokeCard'
 
@@ -41,12 +42,9 @@ const Pokedex = () => {
     setPokemons(searchResult);
   }
 
-  // console.log(pokemons);
-
   const max = pokemons?.length / perPage
 
-  // console.log(max);
-
+  
   return (
     <article className='principalCard'>
       <div className='header'>
@@ -56,6 +54,9 @@ const Pokedex = () => {
       <div className='filter'>
         <input type="text" placeholder='Please, put your favorite Pokemon' value={search} onChange={handleChange}/>
         <button onClick={() => window.location.reload()}>New Search</button>
+      </div>
+      <div className='inputSelector'>
+        <InputSelector />
       </div>
       <div className='superiorPages'>
         <Pagination page={page} setPage={setPage} max={max} />

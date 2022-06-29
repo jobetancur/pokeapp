@@ -1,25 +1,20 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
-const PokeCard = ({url}) => {
+const PokeCardFilter = ({typeUrl}) => {
 
     const [pokemon, setPokemon] = useState()
     
     useEffect (() => {
-        axios.get(url)
+        axios.get (typeUrl)
             .then( res => setPokemon(res.data) )
             .catch(error => console.log(error))
     }, [])
 
-    // console.log(pokemon);
-
-    const navigate = useNavigate ()
-
-    const clickCard = () => navigate ( `/pokedex/${pokemon.id}` ) 
+    console.log(pokemon);
 
   return (
-    <article className='pokeCard' onClick={clickCard}>
+    <article className='pokeCard'>
         <img src={pokemon?.sprites.other['official-artwork'].front_default} alt="" />
             <h2>Name: {pokemon?.name}</h2>
             <hr />
@@ -35,4 +30,4 @@ const PokeCard = ({url}) => {
   )
 }
 
-export default PokeCard
+export default PokeCardFilter
