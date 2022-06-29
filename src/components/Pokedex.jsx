@@ -8,6 +8,7 @@ import PokeCard from './PokeCard'
 const Pokedex = () => {
 
   const [pokemons, setPokemons] = useState()
+  const [pokemonsTable, setPokemonsTable] = useState()
   const [search, setSearch] = useState()
 
   const [page, setPage] = useState(1)
@@ -19,7 +20,10 @@ const Pokedex = () => {
 
   const getAllPokemons = () => {
     axios.get(URL)
-      .then(res => setPokemons(res.data.results))
+      .then(res => {
+        setPokemons(res.data.results)
+        setPokemonsTable(res.data.results)
+      })
       .catch(error => console.log(error))
   }
 
@@ -29,15 +33,15 @@ const Pokedex = () => {
 
   const handleChange = e => {
     setSearch(e.target.value)
-    filter(e.target.value)
+    filterer(e.target.value)
     e.preventDefault()
   }
 
-  const filter = (searchTerm) => {
-    let searchResult = pokemons.filter((element) => {
+  const filterer = (searchTerm) => {
+    let searchResult = pokemonsTable.filter((element) => {
       if(element.name.toString().toLowerCase().includes(searchTerm.toLowerCase())){
         return element;
-      } 
+      }
     })
     setPokemons(searchResult);
   }
@@ -52,8 +56,7 @@ const Pokedex = () => {
         <p>Welcome {nameUser}, here you can find your favorite pokemon.</p>
       </div>
       <div className='filter'>
-        <input type="text" placeholder='Please, put your favorite Pokemon' value={search} onChange={handleChange}/>
-        <button onClick={() => window.location.reload()}>New Search</button>
+        <input type="text" placeholder='Put your favorite Pokemon' value={search} onChange={handleChange}/>
       </div>
       <div className='inputSelector'>
         <InputSelector />
