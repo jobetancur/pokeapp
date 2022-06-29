@@ -1,15 +1,18 @@
 import './App.css'
 import { Link, Route, Routes } from 'react-router-dom'
-import RouteFather from './components/RouteFather'
 import Home from './components/Home'
 import Pokedex from './components/Pokedex'
 import PokeInfo from './components/PokeInfo'
 import pokenav from './img/pokemon_pokeball_logo.png'
 import Footer from './components/Footer'
 import PokeFilter from './components/PokeFilter'
+import ProtectedRoutes from './components/ProtectedRoutes'
+import { useState } from 'react'
 
 
 function App() {
+
+  const [isLogged, setIsLogged] = useState(false)
 
   return (
     <div className="App">
@@ -20,8 +23,8 @@ function App() {
         </ul>
       </nav>
       <Routes>
-          <Route element={ <RouteFather/> }>
-            <Route path='/' element={ <Home/> } />
+        <Route path='/' element={ <Home setIsLogged={setIsLogged}/> } />
+          <Route element={ <ProtectedRoutes isLogged={isLogged}/> }>
             <Route path='/pokedex' element={ <Pokedex/> } />
             <Route path='/pokedex/:id' element={ <PokeInfo/> } />
             <Route path='/pokefilter/:type' element={ <PokeFilter/> }/>

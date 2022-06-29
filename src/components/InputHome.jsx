@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { setName } from '../store/slices/nameUser.slice'
 
-const InputHome = () => {
+const InputHome = ({setIsLogged}) => {
 
     const { handleSubmit, reset, register } = useForm ()
 
@@ -20,10 +20,13 @@ const InputHome = () => {
         navigate('/pokedex')
     }
 
+    const clickLogged = () => setIsLogged(true)
+    
+
   return (
     <form onSubmit={ handleSubmit (submit) }>
         <input type="text" placeholder='Please, put your name' { ...register('nameUser') }/>
-        <button>Go!</button>
+        <button onClick={clickLogged}>Go!</button>
     </form>
   )
 }
