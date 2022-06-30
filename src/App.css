@@ -375,6 +375,49 @@
   margin-left: 20px;
   margin-bottom: 40px;
 }
+.moves {
+  background-color: rgba(255, 255, 255, 0.493);
+  width: 80%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  color: #000000;
+}
+.pokeMoves hr {
+  background-color: #812323;
+  height: 2px;
+  border: none;
+  margin-bottom: 10px;
+}
+.movesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.pokeMoves h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+.pokeMoves p {
+  font-size: 18px;
+}
+.bg-move {
+  background-color: #332626;
+  margin: 10px;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s;
+}
+.bg-move:hover {
+  transform: translateY(-5px);
+  box-shadow: 1px 1px 8px ;
+}
+
 @media (max-width: 500px) { 
   .divition2 p {
     margin: 10px 10px;

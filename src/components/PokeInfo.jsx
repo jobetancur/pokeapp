@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect } from 'react'
+import PokeMoves from './PokeMoves'
 
 const PokeInfo = () => {
 
@@ -16,7 +17,7 @@ const PokeInfo = () => {
           .catch(error => console.log(error))
   }, [id])
 
-  console.log(pokeInfo);
+  // console.log(pokeInfo);
 
   const navigate = useNavigate ()
   const clickBack = () => navigate ('/pokedex')
@@ -39,17 +40,20 @@ const PokeInfo = () => {
         <h2>Abilities</h2>
         <hr />
         <div className='divition2'>
-          <p>{pokeInfo?.abilities[0].ability.name}</p>
-          <p>{pokeInfo?.abilities[1].ability.name}</p>
+          <p>{pokeInfo?.abilities[0]?.ability.name}</p>
+          <p>{pokeInfo?.abilities[1]?.ability.name}</p>
         </div>
       </div>
       <div className='type'>
         <h2>Type</h2>
         <hr />
         <div className='divition3'>
-          <p>{pokeInfo?.types[0].type.name}</p>
+          <p>{pokeInfo?.types[0]?.type.name}</p>
           <p>{pokeInfo?.types[1]?.type.name}</p>
         </div>
+      </div>
+      <div className='moves'>
+          <PokeMoves pokeInfo={pokeInfo}/>
       </div>
       <button onClick={clickBack} className='goBack'>Go back!</button>
     </article>
