@@ -252,6 +252,9 @@
   margin: 10px 20px;
   font-size: 18px;
 }
+.goBackButton {
+  width: 80%;
+}
 .goBack {
   margin: 20px;
   width: 250px;

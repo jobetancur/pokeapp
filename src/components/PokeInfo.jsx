@@ -55,7 +55,9 @@ const PokeInfo = () => {
       <div className='moves'>
           <PokeMoves pokeInfo={pokeInfo}/>
       </div>
-      <button onClick={clickBack} className='goBack'>Go back!</button>
+      <div className='goBackButton'>
+        <button onClick={clickBack} className='goBack'>Go back!</button>
+      </div>
     </article>
   )
 }
